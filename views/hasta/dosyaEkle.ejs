@@ -1,0 +1,123 @@
+<html lang="tr">
+
+<head>
+    <%-include('./layouts/_header') -%>
+
+   <script>
+    $('#choose-file').inputFileText({
+    text: 'Dosya Seç',
+    buttonClass: 'button-class',//give this class to button and text so that you can style them
+    textClass: 'text-class'
+});
+
+   </script>
+        <style type="text/css"> 
+            #sol {
+                float: left;
+                width: 40%;
+                height: 100%;
+                padding-left: 30px;
+
+
+            }
+            #sag {
+                float: left;
+                width: 60%;
+                height: 100%;
+            }
+            input {
+                padding: 0.7rem 1rem;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                font-size: 0.9em;
+                width: 90%;
+            }
+
+            select {
+        padding: 0.7rem 1rem;
+        border: 1px solid #ddd;
+        background: #fff;
+        border-radius: 4px;
+        font-size: 0.9em;
+       
+    }
+ 
+            .div1 {
+                padding-top: 15px;
+                padding-bottom : 10px;
+            }  
+            
+            .button-class {
+        padding: 10px 15px 10px 15px;
+		font-size: medium;
+		background: darkgray;
+		border-radius: 5px;
+		color: white;
+		font-weight: bold;
+    }
+    .text-class {
+        color: #777777;
+    }
+
+        </style>
+
+
+</head>
+<body>
+
+<div class="modal-header">
+    <h6 class="modal-title text-white">&nbsp Hasta Bilgileri</h6>
+</div>
+
+
+
+<form  method="post" action="/upload" class="form-vertical"  enctype='multipart/form-data'>
+
+     
+    <input name="_id" id="_id" type="hidden" class="form-control-sm " value="<%= _id%>" />
+    <input name="_iv" id="_iv" type="hidden" class="form-control-sm " value="<%= _iv%>" />
+
+        <div class="row div1">
+            
+            <div id="sol">Tarih</div>
+            <div id="sag"><input name="Tarih_" id="Tarih_" type="text" value='<%= gununTarihi %>'  style="width:270px;" class="form-control-sm " />
+            </div>
+
+            <div id="sol">Tetkik Türü</div>
+            <div>
+                <select class="form-control-sm" id="TetkikTuru_" value="" style="width:270px;" name="TetkikTuru_" style="height:70px;" />
+                <% TetkikTuru_.forEach(function(items, i){ i++ %>                            
+                    <option value=<%= items.id%> selected> <%= items.TetkikAdi%></option>
+                   
+                <% }) %>              
+                </select>
+            </div>
+        
+            <div id="sol">Tetkik Dosyası</div>
+            <div id="sag">
+                
+                <input type="file" id="choose-file" style="width:10px;" name="file" class="form-control-sm" value="" required="">
+              
+            </div>
+            
+
+   
+
+        </div>
+        <div class="modal-footer">
+            
+            <input class="btn btn-primary btn-sm" type="submit"  style="width:60px;" value="Kaydet"  / >
+            <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Kapat</button>
+            
+        </div>
+        
+    </form>
+  
+
+</body>
+
+
+
+</html>
+
+

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <%-include('./layouts/_header') -%>
+
+</head>
+
+<body>
+
+  <header>
+
+   
+  </header>
+
+  <body>
+
+    
+
+
+    <div class="modal-header">
+        <h6 class="modal-title text-white">&nbsp Hasta Listesi</h6>
+      </div>
+    
+        
+      
+      <div class="container ">
+        
+
+ 
+
+        <div class="table_div1">
+          <table class="table  small well table-bordered">
+
+            <thead>
+              <tr>
+                <th scope="col">Sıra</th>
+                <th scope="col">Tarih</th>
+                <th scope="col">Rand.Saatii</th>
+                <th scope="col">Adı Soyadı</th>
+                <th scope="col">Rad. Türü</th>
+                <th scope="col">Randevuları</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% results[0].forEach(function(items, i){ i++ %>
+                <tr>
+                  <td>
+                    <%= i %>
+                  </td>
+                  <td>
+                    <%= items.Tarih %>
+                  </td>
+                  <td>
+                    <%= items.RandevuSaati %>
+                  </td>
+                  <td>
+                    <%= items.AdSoyad %>
+                  </td>
+                  <td>
+                    <%= items.RandevuTuru %>
+                  </td>
+                  <td><a href="/hastaRandevulari/<%= items.Id%>&<%= items.iv%>" class="">Randevuları</a> </td>
+                </tr>
+                <% }) %>
+
+            </tbody>
+          </table>
+        </div>
+  
+      
+      <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+    </div>
+
+
+    <div class="modal-footer">
+        
+        
+       
+        <button type="button"  class="btn btn-danger btn-sm" data-dismiss="modal">Kapat</button>
+        
+
+       
+        
+    </div>
+
+
+    <!-- modal placeholder-->
+    <div id='myModal' class='modal  fade in'>
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div id='myModalContent'></div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+
+
+
+  </body>
+
+</html>

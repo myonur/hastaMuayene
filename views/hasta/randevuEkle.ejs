@@ -1,0 +1,141 @@
+<html lang="en">
+
+<head>
+    <%-include('./layouts/_header') -%>
+
+        <style type="text/css">
+            #sol {
+                float: left;
+                width: 40%;
+                height: 100%;
+                padding-left: 30px;
+                font-size: small;
+
+
+            }
+
+            #sag {
+                float: left;
+                width: 60%;
+                height: 100%;
+            }
+
+            input {
+                padding: 0.7rem 1rem;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                font-size: 0.9em;
+                width: 90%;
+            }
+
+             select {
+        padding: 0.7rem 1rem;
+        border: 1px solid #ddd;
+        background: #fff;
+        border-radius: 4px;
+        font-size: 0.9em;
+        
+        
+    }
+
+    .div1 {
+                padding-top: 15px;
+                padding-bottom: 10px;
+    }
+
+    .aciklama {
+        border: 1px solid #ddd;
+        margin-left:10px; 
+        background-color:cornsilk; 
+        height:200px; 
+        width: 95%;
+
+    }
+         
+        </style>
+
+ 
+
+
+</head>
+
+<body>
+<div class="modal-header">
+    <h6 class="modal-title text-white">&nbsp Hasta Bilgileri</h6>
+</div>
+
+<form method="post" action="/randevuKaydet" class="form-vertical">
+
+    <input name="_id" id="_id" type="hidden" class="form-control-sm " value="<%= _id%>" />
+    <input name="_iv" id="_iv" type="hidden" class="form-control-sm " value="<%= _iv%>" />
+
+    <div class="row div1">
+
+    
+        <div id="sol">Randevu Tarihi</div>
+        <div id="sag"><input name="RandevuTarihi_" id="RandevuTarihi_" type="text" class="form-control-sm "
+                value="<%= gununTarihi %>" /></div>
+                
+                <div id="sol">Randevu Saati</div>
+                <div id="sag"> 
+                    <select class="form-control-sm" id="RandevuSaati_" value="" style="width:245px;" name="RandevuSaati_" style="height:70px;" />
+                        <% RandevuSaatleri_.forEach(function(items, i){ i++ %>                            
+                            <option value=<%= items.Deger%> selected> <%= items.Deger%></option>
+                            <option value=<%= items.Deger%> > <%= items.Deger%></option> 
+                        <% }) %>                
+                    </select>
+                </div>  
+
+                <div id="sol">Randevu Turu</div>
+                <div id="sag"> 
+                    <select class="form-control-sm" id="RandevuTuru_" value="" style="width:245px;" name="RandevuTuru_" style="height:70px;" />
+                        <% RandevuTurleri_.forEach(function(items, i){ i++ %>                            
+                            <option value=<%= items.id%> > <%= items.RandevuTuru%></option> 
+
+                        <% }) %>                
+                    </select>
+                </div> 
+                
+                <div id="sol">Onay</div>
+                <div id="sag"> 
+                    <select class="form-control-sm" id="Onay_" value="" style="width:245px;" name="Onay_" style="height:70px;" />
+                        <% Onay_.forEach(function(items, i){ i++ %>                       
+                            <option value=<%= items.id%> > <%= items.Onay%></option> 
+
+                        <% }) %>                
+                    </select>
+                </div> 
+
+
+    <div id="sol">Tetkik</div>
+    <select class="form-control-sm" id="Tetkik_" value="" style="width:245px;" name="Tetkik_" style="height:70px;" />
+        <% Tetkik_.forEach(function(items, i){ i++ %>
+            <option value=<%= items.id%> > <%= items.Tetkik%></option> 
+        <% }) %>                
+    </select>
+    </div>     
+
+</div> 
+    <div ><textarea name="Aciklama_" id="Aciklama_" type="text"  class="form-control-sm aciklama" >
+            </textarea> </div>
+            
+
+
+
+
+    <div class="modal-footer">
+        
+        
+        <input class="btn btn-primary btn-sm" type="submit"  style="width:60px;" value="Kaydet"  / >
+        <button type="button"  class="btn btn-danger btn-sm" data-dismiss="modal">Kapat</button>
+        
+
+       
+        
+    </div>
+
+</form>
+
+</body>
+
+</html>

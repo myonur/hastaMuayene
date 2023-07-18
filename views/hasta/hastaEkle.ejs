@@ -1,0 +1,119 @@
+<html lang="en">
+
+<head>
+    <%-include('./layouts/_header') -%>
+    <style type="text/css">
+        #sol {
+            float: left;
+            width: 40%;
+            height: 100%;
+            padding-left: 30px;
+            font-size: small;
+
+
+        }
+
+        #sag {
+            float: left;
+            width: 60%;
+            height: 100%;
+        }
+
+        input {
+            padding: 0.7rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 0.9em;
+            width: 90%;
+        }
+
+         select {
+    padding: 0.7rem 1rem;
+    border: 1px solid #ddd;
+    background: #fff;
+    border-radius: 4px;
+    font-size: 0.9em;
+    
+    
+}
+
+        .div1 {
+            padding-top: 15px;
+            padding-bottom: 10px;
+        }
+    </style>
+
+</head>
+
+
+<div class="modal-header">
+    <h6 class="modal-title text-white">&nbsp Hasta Bilgileri</h6>
+</div>
+
+
+
+<form  method="post" action="/yenihastaKaydet" class="form-vertical">
+
+        
+
+        <div class="row div1">
+            
+            <div id="sol">Ad Soyad</div>
+            <div id="sag"><input name="AdSoyad_" id="AdSoyad_" type="text" class="form-control-sm "
+                    value="" /></div>
+            <div id="sol">Tc Kimlik No</div>
+            <div id="sag"><input name="TcNo_" id="TcNo_" type="text" class="form-control-sm " value="" />
+            </div>
+            <div id="sol">Protokol No</div>
+            <div id="sag"><input name="ProtokolNo_" id="ProtokolNo_" type="text" class="form-control-sm "
+                    value="" /></div>
+            <div id="sol">Telefon</div>
+            <div id="sag"><input name="Telefon_" id="Telefon_" type="text" class="form-control-sm "
+                    value="" /></div>
+            <div id="sol">Meslek</div>
+            <div id="sag"><input name="Meslek_" id="Meslek_" type="text" class="form-control-sm "
+                    value="" /> </div>
+            <div id="sol">mail</div>
+            <div id="sag"><input name="email_" id="email_" type="text" class="form-control-sm "
+                    value="" /></div>
+            <div id="sol">Doğum Tarihi</div>
+            <div id="sag"><input name="DogumTarihi_" id="DogumTarihi_" type="text" class="form-control-sm "
+                    value="" /></div>
+            <div id="sol">Doğum Yeri</div>
+            <div id="sag"><input name="DogumYeri_" id="DogumYeri_" type="text" class="form-control-sm "
+                    value="" /></div>
+            <div id="sol">Uyruğu</div>
+            <div id="sag"><input name="Uyrugu_" id="Uyrugu_" type="text" class="form-control-sm "
+                    value="" /></div>                    
+                    <div id="sol">Adres</div>
+                    <div id="sag"><input name="Adres_" id="Adres_" type="text" class="form-control-sm "
+                            value="" style="height:70px;" /></div>                       
+                
+
+                            <div id="sol">Cinsiyet</div>
+                            <div id="sag"> 
+                                    <select class="form-control-sm" id="Cinsiyet_" value="" style="width:245px;" name="Cinsiyet_" style="height:70px;" />                                   
+                                            <option value="0" >---</option>
+                                            <option value="1" >Erkek</option>
+                                            <option value="2">Bayan</option>                                                          
+                                    </select>
+                            </div> 
+
+        </div>
+
+        <div class="modal-footer">
+            
+            <input class="btn btn-primary btn-sm" type="submit"  style="width:60px;" value="Kaydet"  / >
+            <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Kapat</button>
+            
+        </div>
+        
+    </form>
+  
+</div>
+
+
+
+
+</html>
+

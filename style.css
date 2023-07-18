@@ -1,0 +1,155 @@
+html,
+body {
+  height: -webkit-fill-available;
+  min-height: 100vh;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  --background-color: #f3f5fa;
+  overflow: hidden;
+  position:absolute;top:0px;left:0px;right:0px;bottom:0px;
+}
+
+.left {
+    float:left;
+    height: 100%;
+    width: 50%;
+    background-color: #0c2c5b;     
+
+}
+
+.right {
+    float: right;
+    height: 100%;
+    width: 50%;
+  }
+  
+
+.btn {    
+  background-color: #0c2c5b;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 7px;
+  cursor: pointer;
+  text-decoration: none;
+  text-shadow: 1px 1px 3px #333;
+  padding: 10px 14px;
+  font-size: 16px;
+  cursor: pointer;
+  border: 0px solid #fff;
+  line-height: 1.4rem;
+}
+
+.btn.btn-small {
+  padding: 7px 10px;
+  vertical-align: middle;
+  border-radius: 7px;
+  
+}
+
+.btn-red {
+  background-color: #f13c46;
+}
+
+.btn.btn-red:hover {
+  background-color: #f46c73
+}
+
+
+.div-baslik {
+  position: relative;
+  top:50px;
+}
+
+.div-logo{      
+    
+    margin :auto;
+    padding-top: 40px;
+    width: 40%;
+    height: 35%;    
+}
+
+.img {
+    position: relative;
+    top: 50%;
+    width:60%;
+    left:50%;
+   
+    transform: translate(-50%, -50%);    
+  }
+
+.title {   
+    color: #fff;
+    text-align: center;
+    font-family: Helvetica;
+    font-weight: 400;
+}
+
+h1 {
+  font-size: 24px;  
+}
+
+h2 {  
+  font-size: 16px;  
+}
+
+.siyah {
+  color:#000;
+  font-weight: bold;
+}
+.center{ 
+     
+    text-align: center;
+}
+
+.login{
+    padding: auto;
+    position:relative;
+    top:50%;
+    left:50%;
+    width:350px;
+    height:190px;
+   
+   
+    transform:translate(-50%,-50%);          
+}
+
+input {
+   
+    border: 1px solid rgba(198, 205, 211, 0.9);
+    border-radius: 3px;
+    background-color: rgba(213, 229, 235, 0.5);
+    text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.3);
+   
+    font-size: 14px;
+    height: 2.2rem;
+    width:95%;
+      
+  }
+  
+  input:hover {
+    background-color: bisque;
+  }
+  
+  input:focus {
+    outline: 1px solid #000;
+  
+  }
+  
+  .required:after {
+    content:" *";
+    color: red;
+  }
+
+.footer{
+    position:absolute;
+    width:50%;
+    left:10%;
+    right:10%;
+    bottom:40px;
+    font-size:14px;
+    color:#fff;
+  }
+
+ 
+

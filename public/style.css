@@ -1,0 +1,135 @@
+:root {
+  --jumbotron-padding-y: 1rem;
+}
+
+.jumbotron {
+  padding-top: var(--jumbotron-padding-y);
+  padding-bottom: var(--jumbotron-padding-y);
+  margin-bottom: 0;
+  background-color: #fff;
+}
+@media (min-width: 768px) {
+  .jumbotron {
+    padding-top: calc(var(--jumbotron-padding-y) * 2);
+    padding-bottom: calc(var(--jumbotron-padding-y) * 2);
+  }
+}
+
+.jumbotron p:last-child {
+  margin-bottom: 0;
+}
+
+.jumbotron-heading {
+  
+  font-weight: 300;
+  color: #00188f;
+  
+}
+.jumbotron .container {
+  max-width: 40rem;
+}
+.carousel, .slide,
+.carousel .carousel-inner,
+.carousel .carousel-item,
+.carousel .carousel-item img,
+.carousel .carousel-control {
+  border-radius: 12;
+  overflow: hidden;
+}
+
+.navbar-default {
+        background-color: #d4ebf1;
+        border-color: black;
+
+}
+footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+footer p {
+  margin-bottom: .25rem;
+}
+
+
+.table_div {
+  overflow-y: scroll;
+  overflow-x: scroll;
+  
+  max-height: 500px;
+  
+}
+
+.table_div1 {
+  overflow-y: scroll;
+  overflow-x: scroll;
+  
+  max-height: 450px;
+  
+}  
+
+.table_div2 {
+  overflow-y: scroll;
+  overflow-x: scroll;
+  
+  max-height: 200px;
+  
+}
+
+
+
+.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+  padding: 0px;
+  line-height: 1.2;
+  vertical-align: top;
+  border-top: 1px solid #ddd;   
+
+}
+
+.header {
+position: sticky;
+top:0;
+}
+
+th {
+background-color: black;
+color: white;
+}
+
+tr {
+line-height: 20px;
+max-height: 20px;
+height: 22px;
+}
+
+thead {
+table-layout: fixed;   
+position: sticky;
+top:0;
+}
+
+
+.modal {
+top: 5%;
+width: 35%;
+margin: 0 auto;
+/*height: 500px;*/
+}
+
+.modal-header {
+  padding: 10px 10px;
+  border-bottom: 1px solid #eee;
+  background-color: #007bff ; 
+  -webkit-border-top-left-radius: 10px;
+  -webkit-border-top-right-radius: 10px;
+  -moz-border-radius-topleft: 10px;
+  -moz-border-radius-topright: 10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+
+
+
+
+

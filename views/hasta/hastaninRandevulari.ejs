@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <%-include('./layouts/_header') -%>
+
+</head>
+
+<body>
+
+    <header>
+
+        <title>
+            <%- title -%>
+        </title>
+    </header>
+
+    <body onload="showContent('<%= mesaj %>')">
+
+        <input name="_id" id="_id" type="hidden" class="form-control-sm " value="<%= _id%>" />
+        <input name="_iv" id="_iv" type="hidden" class="form-control-sm " value="<%= _iv%>" />       
+
+        <div class="container jumbotron">
+            <h1>Alınan Randevular</h1>
+            <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+            <div class="row">
+                <div class="col-sm-12">
+                      <!-------   Hasta Bilgileri   ----------->
+                    <div class="modal-header">
+                        <h6 class="modal-title text-white">&nbsp Hasta Bilgileri</h6>
+                    </div>
+                    <div class="input-group small col-sm-12 ">
+
+                        <table class="">
+                            <tr>
+                                <td>
+                                    <b>AdSoyad....:</b>
+                                </td>
+                                <td>
+                                    <%- _HastaBilgileri[0].AdSoyad -%> &nbsp &nbsp &nbsp
+                                </td>
+                                <td>
+                                    <b>Protokol No....:</b>
+                                </td>
+                                <td>
+                                    <%- _HastaBilgileri[0].ProtokolNo -%> &nbsp &nbsp &nbsp
+                                </td>
+                                <td>
+                                    <b>TCNO....:</b>
+                                </td>
+                                <td>
+                                    <%- _HastaBilgileri[0].TcKimlikNo -%> &nbsp &nbsp &nbsp
+                                </td>
+                                <td>
+                                    <b>Telefon....: </b>
+                                </td>
+                                <td>
+                                    <%- _HastaBilgileri[0].Telefon -%> &nbsp &nbsp &nbsp
+                                </td>
+
+                                <td>
+                                    <b>Meslek....: </b>
+                                </td>
+                                <td>
+                                    <%- _HastaBilgileri[0].Meslek -%> &nbsp &nbsp &nbsp
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <b>Doğ.Tarih..:</b>
+                                </td>
+                                <td>
+                                    <%- _HastaBilgileri[0].DogumTarihi -%> &nbsp &nbsp &nbsp
+                                </td>
+                                <td>
+                                    <b>Doğum Yeri....:</b>
+                                </td>
+                                <td>
+                                    <%- _HastaBilgileri[0].DogumYeri -%> &nbsp &nbsp &nbsp
+                                </td>
+                                <td>
+                                    <b>Adres....:</b>
+                                </td>
+                                <td colspan="4">
+                                    <%- _HastaBilgileri[0].Adres -%>
+                                </td>
+
+                            </tr>
+                            <tr>&nbsp</tr>
+
+                        </table>
+                    </div>                        
+ 
+
+
+                </div>    
+ 
+            </div>
+
+            <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+            <div class="row">
+                <div class="col-sm-12">
+
+                    <div class="header"> 
+                        <h5><b>Randevular</b> </h5>
+                        <hr style="height:3px;border-width:0;background-color:#0275d8">
+                   </div>  
+                   <div class="table_div2">
+                        <table class="table  small well table-bordered">
+
+                            <thead>
+                                <tr>
+                                    <th scope="col">Sıra</th>
+                                    <th scope="col">Tarih</th>
+                                    <th scope="col">Saati</th>
+                                    <th scope="col">Randevu Türü</th>
+                                    <th scope="col">Tetkik Sonucu</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% results[0].forEach(function(items, i){ i++ %>
+                                    <tr>
+                                        <td>
+                                            <%= i %>
+                                        </td>
+                                        <td>
+                                            <%= items.Tarih %>
+                                        </td>
+                                        <td>
+                                            <%= items.RandevuSaati %>
+                                        </td>
+                                        <td>
+                                            <%= items.RandevuTuru %>
+                                        </td>
+                                        <td><a href="/hastaRandevusu/<%= items.ID%>&<%= items.iv%>" class="editDialog">detay</a>
+                                        </td>
+                                    </tr>
+                                    <% }) %>
+
+                            </tbody>
+                        </table>
+                    </div>
+                
+                <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+                <div class="row float-right">
+                    <a href="/randevuEkle/<%= _id%>&<%= _iv%>" class=" editDialog btn btn-success btn-sm" role="button">Yeni Randevu</a> &nbsp &nbsp
+                </div>
+
+            </div>   <!--Row End-->
+
+ 
+           
+                 
+        </div>
+
+        <!--------------------Tetkikler -------------------->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="header"> 
+                    <h5><b>Tetkikler</b> </h5>
+                    <hr style="height:3px;border-width:0;background-color:#0275d8">
+               </div>  
+               <div class=" table_div2">
+                <table class="table  small well table-bordered">
+
+                    <thead>
+                        <tr>
+                            <th scope="col">Sıra</th>
+                            <th scope="col">Tarih</th>
+                            <th scope="col">Tetkik Türü</th>
+                            <th scope="col">Dosya Adı</th>
+                            <th scope="col">Göster</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% hastaDosyalari.forEach(function(items, i){ i++ %>
+                            <tr>
+                                <td>
+                                    <%= i %>
+                                </td>
+                                <td>
+                                    <%= items.Tarih %>
+                                </td>
+                                <td>
+                                    <%= items.TetkikAdi %>
+                                </td>
+                                <td>
+                                    <%= items.RandevuTuru %>
+                                </td>
+                                <td><a href="/oku" target="_blank">Göster</a>
+                                </td>
+                            </tr>
+                            <% }) %>
+
+                    </tbody>
+                </table>
+            </div>
+
+            </div>
+           
+
+            
+        </div>
+    
+        <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+        <div class="row float-right">
+            <a href="/geri/" class=" btn btn-danger btn-sm" style="width:100px;" role="button">Geeri Dön</a> &nbsp &nbsp
+            <a href="/dosyaEkle/<%= _id%>&<%= _iv%>" class=" editDialog2 btn btn-success btn-sm" style="width:100px;" role="button">Yeni Tetkik</a> &nbsp &nbsp
+        </div>
+           
+        
+
+    
+
+
+
+
+        <!-- modal placeholder-->
+        <div id='myModal' class='modal  fade in'>
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div id='myModalContent'></div>
+                </div>
+            </div>
+        </div>
+
+       
+
+
+
+
+    </body>
+
+</html>

@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <%-include('./layouts/_header') -%>
+<script>
+  function kayitAra(){
+    var aranan = document.getElementById("AranacakKelime").value;
+    var kosul = document.getElementById("AramaKosulu").value;
+   
+      var linkBilgi = '/hastaListesi';
+           
+                      window.location.href  = linkBilgi + "?" + jQuery.param({ aranan: aranan, kosul: kosul }); 
+          
+
+  }
+
+  window.onload = function yuklemeSonrasi(){
+   // alert(urlParams.get('aranan'));
+    
+    // document.getElementById("AranacakKelime").value = urlParams.get('aranan');
+    // document.getElementById("AramaKosulu").value = urlParams.get('kosul');
+  }
+</script>
+</head>
+
+<body>
+
+  <header>
+
+    <title>
+      <%- title -%>
+    </title>
+  </header>
+
+
+  <body onload="showContent('<%= mesaj %>')">
+
+
+    <div class="container jumbotron">
+      <h1>Hasta Kayıtları</h1>
+      <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+      <div class="row">
+        <div class="col-sm-12">
+
+
+
+          <div class="modal-header">
+            <h6 class="modal-title text-white">&nbsp Hasta Listesi</h6>
+          </div>
+
+          <div class="input-group small">
+         
+            <table>
+              <tr>
+                <td>
+                  Arama Koşulu
+                </td>
+                <td style="padding-left:15px;">
+                  <select class="form-select" id="AramaKosulu" style="width:180px;" " name="AramaKosulu">
+                    <option value="0" selected>AdSoyad</option>
+                    <option value="1">ProtokolNo</option>
+                    <option value="2">Tc Kimlik</option>
+                  </select>
+                </td>
+                <td style="padding-left:10px;">
+                  Aranacak Kelime
+                </td>
+                <td style="padding-left:10px;">
+                  <input type="text" id="AranacakKelime" values="ayse" name="AranacakKelime" class="form-select input-sm"
+                    style="width:455px ; " autocomplete="off" value="" />
+                </td>
+                <td style="padding-left:150px;">
+                  <button class="btn btn-info btn-sm" onclick="kayitAra()">Kayıt Ara</button>
+                </td>
+              </tr>
+            </table>
+ 
+
+          </div>
+<div class="table_div1 ">
+          <table class="table  small well table-bordered">
+
+            <thead>
+              <tr>
+                <th scope="col">Sıra</th>
+                <th scope="col">Ad Soyad</th>
+                <th scope="col">Doğum Tarihi</th>
+                <th scope="col">Tc Kimlik</th>
+                <th scope="col">Telefon</th>
+                <th scope="col">Detay</th>
+                <th scope="col">Randevuları</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% results[0].forEach(function(items, i){ i++ %>
+                <tr>
+                  <td>
+                    <%= i %>
+                  </td>
+                  <td>
+                    <%= items.AdSoyad %>
+                  </td>
+                  <td>
+                    <%= items.DogumTarihi %>
+                  </td>
+                  <td>
+                    <%= items.TcKimlikNo %>
+                  </td>
+                  <td>
+                    <%= items.Telefon %>
+                  </td>
+                  <td><a href="/hastaBilgileri/<%= items.ID%>&<%= items.iv%>" class="editDialog">detay</a> </td>
+                  <td><a href="/hastaRandevulari/<%= items.ID%>&<%= items.iv%>" class="">Randevuları</a>  </td>
+                </tr>
+                <% }) %>
+
+            </tbody>
+          </table>
+        </div>
+        </div>
+      </div>
+      <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+      <div class="row float-right" >        
+        <a href="/randevular" class=" editDialog btn btn-warning btn-sm" role="button" >Randevu Listesi</a>  &nbsp &nbsp
+        <a href="/yeniHasta" style="width:100px;" class=" editDialog btn btn-success btn-sm" role="button">Yeni Kayıt</a>  &nbsp &nbsp
+      </div>
+      </div>
+ 
+    </div>
+
+
+
+
+    <!-- modal placeholder-->
+    <div id='myModal' class='modal  fade in'>
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div id='myModalContent'></div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+    
+
+    
+  </body>
+ 
+</html>
